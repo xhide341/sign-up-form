@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hide's signup form</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -27,43 +28,44 @@
             </p>
         </div>
 
-        <form action="" method="">
+        <form action="" method="POST">
 
             <div class="full-name">
                 <div>
                     <label for="first_name">First name</label>
-                    <input type="text" name="first_name" id="first_name">
+                    <input type="text" name="first_name" id="first_name" placeholder="First name" value="" pattern="^[^0-9]+$" size="30" minlength="1" maxlength="245" required>
                 </div>
                 <div>
                     <label for="last_name">Last name</label>
-                    <input type="text" name="last_name" id="last_name">
+                    <input type="text" name="last_name" id="last_name" placeholder="Last name" value="" size="30" minlength="1" maxlength="245" required>
                 </div>
             </div>
 
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" placeholder="Email" size="30" maxlength="100" aria-describedby="email-notes" required>
             </div>
 
             <div>
                 <label for="phone_number">Phone number</label>
-                <input type="tel" name="phone_number" id="phone_number">
+                <input type="tel" name="phone_number" id="phone_number" placeholder="Phone number" required>
             </div>
 
-            <div class="password">
+            <div class="password-section">
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
+                    <input class="password" type="password" name="password" id="password" placeholder="Enter password" required>
                 </div>
     
                 <div>
                     <label for="confirm_password">Confirm password</label>
-                    <input type="password" name="confirm_password" id="confirm_password">
+                    <input class="password" type="password" name="confirm_password" id="confirm_password" placeholder="Enter password" onkeyup="validate_password()" required>
                 </div>
             </div>
+            <small id="confirm_password_feedback"> </small>
 
             <div class="submit-section">
-                <button type="submit">Create account</button>
+                <button type="submit" id="submit-btn">Create account</button>
                 <p>Already have an account? <span class="log-in"><strong>Log in</strong></span></p>
             </div>
 

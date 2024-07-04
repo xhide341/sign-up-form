@@ -82,14 +82,14 @@ form {
     flex-direction: column;
 }
 
-.full-name, .password {
+.full-name, .password-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
 }
 
-.full-name > div, .password > div {
+.full-name > div, .password-section > div {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -108,10 +108,52 @@ label {
 
 input {
     padding: 10px;
-    border: 1px solid #E5E7EB;
+    border: 1px solid #d8d8d8;
+    background-color: #fff;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 16px;
+    font-size: 1rem;
     width: 100%;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/* input functionalities */
+input:placeholder-shown, input:not(:focus) {
+    background-color: transparent;
+    border: 1px solid #d8d8d8;
+}
+
+input:focus {
+    outline: none;
+    border-color: #035AA6;
+}
+
+
+input:not(:placeholder-shown):valid  {
+    border: 1px solid #8BC34A;
+    background-color: rgba(139, 195, 74, 0.25);
+}
+
+input:valid:focus {
+    border: 1px solid #8BC34A;
+    background-color: transparent;
+}
+
+input:not(:placeholder-shown):invalid {
+    border: 1px solid #b92326;
+    background-color: rgba(185, 35, 38, 0.25);
+}
+
+input:invalid:focus {
+    background-color: transparent;
+    border: 1px solid #b92326;
+}
+
+.password-section {
+    margin-bottom: 10px;
 }
 
 
@@ -123,6 +165,12 @@ input {
 
 .log-in {
     color: #035AA6;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.log-in:hover {
+    text-decoration: underline;
 }
 
 button {
@@ -132,7 +180,15 @@ button {
     padding: 10px;
     background-color: #035AA6;
     color: #f7f7f7;
-    border: 1px solid white;
+    border: 0px solid white;
+}
+
+button:hover {
+    background-color: #1c7acc;
+}
+
+button:focus {
+    transform: scale(0.95);
 }
 
 /* Media Queries for Responsiveness */
@@ -163,12 +219,12 @@ button {
         font-size: 1rem;
     }
 
-    .full-name, .password {
+    .full-name, .password-section {
         flex-direction: column;
         gap: 10px;
     }
 
-    .full-name > div, .password > div {
+    .full-name > div, .password-section > div {
         width: 100%;
     }
 }
