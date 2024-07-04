@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hide's signup form</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -14,7 +14,6 @@
 <body>
     <div class="form-section">
         <div class="title-section">
-            <img class="logo-image" src="images/odin-lined.png" alt="A logo of odin project">
             <h1>ODIN</h1>
         </div>        
         <div class="paragraph-section">
@@ -43,12 +42,14 @@
 
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email" size="30" maxlength="100" aria-describedby="email-notes" required>
+                <input type="email" name="email" id="email" placeholder="Email"
+                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" size="30" maxlength="100" 
+                 aria-describedby="email-notes" required>
             </div>
 
             <div>
                 <label for="phone_number">Phone number</label>
-                <input type="tel" name="phone_number" id="phone_number" placeholder="Phone number" required>
+                <input type="tel" name="phone_number" id="phone_number" placeholder="Phone number" minlength="10" maxlength="15" required>
             </div>
 
             <div class="password-section">
@@ -62,7 +63,7 @@
                     <input class="password" type="password" name="confirm_password" id="confirm_password" placeholder="Enter password" onkeyup="validate_password()" required>
                 </div>
             </div>
-            <small id="confirm_password_feedback"> </small>
+            <small id="feedback_message"> </small>
 
             <div class="submit-section">
                 <button type="submit" id="submit-btn">Create account</button>
@@ -71,6 +72,9 @@
 
         </form>
     </div>
-    <img class="bg-image" src="images/unsplash-photo.jpg" alt="An image of a night sky">
+    <div class="image-container">
+        <img class="bg-image" src="images/unsplash-photo.jpg" alt="An image of a night sky">
+        <img class="logo-image" src="images/odin-lined.png" alt="A logo of odin project">
+    </div>
 </body>
 </html>
